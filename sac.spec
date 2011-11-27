@@ -1,6 +1,6 @@
 Name: sac
 Version: 1.3
-Release: 10
+Release: 12
 Summary: Java standard interface for CSS parser
 License: W3C
 Group: System/Libraries
