@@ -32,11 +32,12 @@ Javadoc for %{name}.
 
 %prep
 %setup -q
-install -m 644 %{SOURCE1} build.xml
+install -c -m 644 %{SOURCE1} build.xml
 find . -name "*.jar" -exec rm -f {} \;
 
 %build
 export JAVA_HOME=/usr/lib/jvm/java-1.6.0
+cat build.xml
 ant jar javadoc
 
 %install
