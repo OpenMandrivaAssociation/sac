@@ -1,7 +1,7 @@
 Summary:	Java standard interface for CSS parser
 Name:		sac
 Version:	1.3
-Release:	12
+Release:	13
 License:	W3C
 Group:		System/Libraries
 Url:		http://www.w3.org/Style/CSS/SAC/
@@ -14,6 +14,7 @@ BuildRequires:	ant
 BuildRequires:	java-devel
 BuildRequires:	jpackage-utils
 BuildRequires:	java-rpmbuild
+BuildRequires:	zip
 Requires:	java
 Requires:	jpackage-utils
 
