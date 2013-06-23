@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <!-- simple generic build file -->
 
 <project name="sac" default="all" basedir=".">

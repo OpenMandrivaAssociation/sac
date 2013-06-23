@@ -13,6 +13,7 @@ BuildArch:	noarch
 BuildRequires:	ant
 BuildRequires:	java-devel
 BuildRequires:	jpackage-utils
+BuildRequires:	java-rpmbuild
 Requires:	java
 Requires:	jpackage-utils
 
@@ -53,7 +54,7 @@ cp -pr build/api/* %{buildroot}%{_javadocdir}/%{name}
 # poms
 install -d -m 755 %{buildroot}%{_mavenpomdir}
 install -pm 644 %{SOURCE3} \
-    %{buildroot}%{_mavenpomdir}/JPP-%{name}.pom
+	%{buildroot}%{_mavenpomdir}/JPP-%{name}.pom
 
 %post
 %update_maven_depmap
