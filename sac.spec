@@ -14,6 +14,7 @@ BuildRequires:	ant
 BuildRequires:	java-devel
 BuildRequires:	jpackage-utils
 BuildRequires:	java-rpmbuild
+BuildRequires:	java-1.6.0-openjdk-devel
 BuildRequires:	zip
 Requires:	java
 Requires:	jpackage-utils
@@ -35,6 +36,7 @@ install -m 644 %{SOURCE1} build.xml
 find . -name "*.jar" -exec rm -f {} \;
 
 %build
+export JAVA_HOME=/usr/lib/jvm/java-1.6.0
 ant jar javadoc
 
 %install
