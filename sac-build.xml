@@ -1,3 +1,5 @@
+<!-- simple generic build file -->
+
 <project name="sac" default="all" basedir=".">
 
   <!-- Properties -->
