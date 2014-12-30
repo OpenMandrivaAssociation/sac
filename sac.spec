@@ -1,10 +1,10 @@
 %{?_javapackages_macros:%_javapackages_macros}
 Name: sac
 Version: 1.3
-Release: 17.1%{?dist}
+Release: 20.1
 Summary: Java standard interface for CSS parser
 License: W3C
-
+Group:   Development/Java
 #Original source: http://www.w3.org/2002/06/%{name}java-%{version}.zip
 #unzip, find . -name "*.jar" -exec rm {} \;
 #to simplify the licensing
@@ -60,7 +60,7 @@ install -pm 644 %{SOURCE3} \
 %doc COPYRIGHT.html
 %{_javadir}/%{name}.jar
 %{_mavenpomdir}/*
-%{_mavendepmapfragdir}/*
+%{_datadir}/maven-metadata/*
 
 %files javadoc
 %doc COPYRIGHT.html
