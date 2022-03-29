@@ -1,6 +1,6 @@
 Name: sac
 Version: 1.3
-Release: 21
+Release: 22
 Summary: Java standard interface for CSS parser
 License: W3C
 Group:   Development/Java
@@ -12,7 +12,7 @@ Source1: %{name}-build.xml
 Source2: %{name}-MANIFEST.MF
 Source3: http://mirrors.ibiblio.org/pub/mirrors/maven2/org/w3c/css/sac/1.3/sac-1.3.pom
 URL: http://www.w3.org/Style/CSS/SAC/
-BuildRequires: ant java-devel zip
+BuildRequires: ant jdk-current zip
 Requires: java
 BuildArch: noarch
 
@@ -33,6 +33,7 @@ install -m 644 %{SOURCE1} build.xml
 find . -name "*.jar" -exec rm -f {} \;
 
 %build
+. %{_sysconfdir}/profile.d/90java.sh
 ant jar javadoc
 
 %install
@@ -42,16 +43,16 @@ cp -p %{SOURCE2} META-INF/MANIFEST.MF
 touch META-INF/MANIFEST.MF
 zip -u build/lib/sac.jar META-INF/MANIFEST.MF
 
-mkdir -p $RPM_BUILD_ROOT%{_javadir}
-cp -p ./build/lib/sac.jar $RPM_BUILD_ROOT%{_javadir}/sac.jar
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/java
+cp -p ./build/lib/sac.jar $RPM_BUILD_ROOT%{_datadir}/java/sac.jar
 
-mkdir -p $RPM_BUILD_ROOT%{_javadocdir}/%{name}
-cp -pr build/api/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/javadoc/%{name}
+cp -pr build/api/* $RPM_BUILD_ROOT%{_datadir}/javadoc/%{name}
 
 %files
 %doc COPYRIGHT.html
-%{_javadir}/%{name}.jar
+%{_datadir}/java/%{name}.jar
 
 %files javadoc
 %doc COPYRIGHT.html
-%{_javadocdir}/%{name}
+%{_datadir}/javadoc/%{name}
