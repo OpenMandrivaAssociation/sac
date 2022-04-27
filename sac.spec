@@ -1,6 +1,6 @@
 Name: sac
 Version: 1.3
-Release: 22
+Release: 23
 Summary: Java standard interface for CSS parser
 License: W3C
 Group:   Development/Java
@@ -12,7 +12,11 @@ Source1: %{name}-build.xml
 Source2: %{name}-MANIFEST.MF
 Source3: http://mirrors.ibiblio.org/pub/mirrors/maven2/org/w3c/css/sac/1.3/sac-1.3.pom
 URL: http://www.w3.org/Style/CSS/SAC/
-BuildRequires: ant jdk-current zip
+BuildRequires: ant zip
+# We need to build with OpenJDK 12 because this is used
+# by LibreOffice, which can't be built with OpenJDK > 12
+# because of hsqldb 1.8.x
+BuildRequires: java-12-openjdk-devel
 Requires: java
 BuildArch: noarch
 
@@ -33,7 +37,8 @@ install -m 644 %{SOURCE1} build.xml
 find . -name "*.jar" -exec rm -f {} \;
 
 %build
-. %{_sysconfdir}/profile.d/90java.sh
+export JAVA_HOME=%{_prefix}/lib/jvm/java-12-openjdk
+export PATH=$JAVA_HOME/bin:$PATH
 ant jar javadoc
 
 %install
