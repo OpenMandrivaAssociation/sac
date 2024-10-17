@@ -11,7 +11,7 @@ Source0: %{name}java-%{version}-jarsdeleted.zip
 Source1: %{name}-build.xml
 Source2: %{name}-MANIFEST.MF
 Source3: http://mirrors.ibiblio.org/pub/mirrors/maven2/org/w3c/css/sac/1.3/sac-1.3.pom
-URL: http://www.w3.org/Style/CSS/SAC/
+URL: https://www.w3.org/Style/CSS/SAC/
 BuildRequires: ant zip
 # We need to build with OpenJDK 12 because this is used
 # by LibreOffice, which can't be built with OpenJDK > 12
